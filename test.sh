@@ -4,7 +4,7 @@ SEGMENT_SECS=300
 PARALLEL_JOBS=4
 
 echo "downloading/checking input file"
-wget -nc http://cdn.media.ccc.de/congress/2015/h264-hd/32c3-7550-en-Opening_Event_hd.mp4 -O in.mp4
+wget -nc http://cdn.media.ccc.de/congress/2015/h264-hd/32c3-7551-en-de-Closing_Event_hd.mp4 -O in.mp4
 
 echo "segmenting file"
 rm -f segment-*
