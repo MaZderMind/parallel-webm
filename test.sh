@@ -25,8 +25,5 @@ echo "assembling encoded segments"
 rm -f merged.webm
 mkvmerge -v --webm -o merged.webm `ls -1 segment-*.webm | tr '\n' ' ' | sed 's/ $//g' | sed 's/ / \+ /g'`
 
-echo "remuxing w/ original audio"
-ffmpeg -i merged.webm -i in.mp4 -map 0:v -map 1:a -c:v copy -c:a libvorbis -b:a:0 96k out-with-original-audio.webm
-
-echo "remuxing w/ merged audio"
-ffmpeg -i merged.webm -map 0:v -map 0:a -c:v copy -c:a copy out-with-asselbled-audio.webm
+echo "remuxing with ffmpeg"
+ffmpeg -i merged.webm -map 0:v -map 0:a -c:v copy -c:a copy out.webm
