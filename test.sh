@@ -1,7 +1,7 @@
 #!/bin/sh
 
-SEGMENT_SECS=300
-PARALLEL_JOBS=4
+SEGMENT_SECS=30
+PARALLEL_JOBS=5
 
 echo "downloading/checking input file"
 wget -nc http://cdn.media.ccc.de/congress/2015/h264-hd/32c3-7551-en-de-Closing_Event_hd.mp4 -O in.mp4
