@@ -1,7 +1,6 @@
 #!/bin/sh
 
-SEGMENT_SECS=30
-PARALLEL_JOBS=5
+SEGMENT_SECS=300
 
 echo "downloading/checking input file"
 wget -nc http://cdn.media.ccc.de/congress/2015/h264-hd/32c3-7551-en-de-Closing_Event_hd.mp4 -O in.mp4
@@ -19,7 +18,7 @@ ffmpeg \
 	segment-%05d.ts
 
 echo "parallel encoding segments"
-parallel -j $PARALLEL_JOBS sh encode-segment.sh -- segment-*.ts
+parallel sh encode-segment.sh -- segment-*.ts
 
 echo "assembling encoded segments"
 rm -f merged.webm
